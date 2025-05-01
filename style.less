@@ -1,0 +1,37 @@
+/* === 1. 保留你現有的設定 === */
+.markdown-preview.markdown-preview {
+  font-family: "Times New Roman", "MS Mincho";
+  font-size: 18px;
+}
+
+.markdown-preview.markdown-preview h1,
+.markdown-preview.markdown-preview h2,
+.markdown-preview.markdown-preview h3 {
+  font-size: 1em;        /* 依需要可再調 */
+}
+
+/* === 2. 一般段落：前置四格縮排 === */
+.markdown-preview.markdown-preview p {
+  /* 2em ≒ 2 個全形／4 個半形空白，可自行改成 4ch、32px … */
+  text-indent: 2em;
+  margin: 0 0 1em;
+}
+
+/* === 3. 引用段（> ...）：整塊右移八格，移除灰線灰底 === */
+.markdown-preview.markdown-preview blockquote {
+  /* 4em ≒ 8 個半形空白。用 8ch 也行，看喜好 */
+  padding-left: 4em;
+
+  /* 移除預設的灰線、灰色文字或背景 */
+  border: none;
+  background: none;
+  color: inherit;
+
+  /* 讓左右邊距跟一般段落一致，可視需要微調 */
+  margin: 0 0 1em;
+}
+
+/* 如果不想讓 blockquote 內文再多縮一次，可把內層 p 的縮排歸零 */
+.markdown-preview.markdown-preview blockquote p {
+  text-indent: 0;
+}
