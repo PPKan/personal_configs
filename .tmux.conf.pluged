@@ -4,7 +4,6 @@ unbind C-b
 unbind C-d
 
 set -g history-limit 100000
-set -g allow-rename off
 
 bind-key j command-prompt -p "Join pan from:" "join-pane -s :'%%'"
 bind-key s command-prompt -p "Send pane to:" "join-pane -t :'%%'"

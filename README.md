@@ -43,3 +43,4 @@ git clone https://github.com/PPKan/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/
 mkdir -p ~/.config/tmux/plugins/catppuccin
 git clone -b v2.1.3 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
 ```
+3. Change `~/.config/tmux/plugins/catppuccin/tmux/catppuccin_options_tmux.conf` `window_text` and `current_text` to `#W` in order to display window
