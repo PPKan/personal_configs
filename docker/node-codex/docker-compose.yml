@@ -1,0 +1,7 @@
+services:
+  codex-agent:
+    build: .
+    container_name: codex-agent
+    volumes:
+      - .:/workspace
+    command: sleep infinity
