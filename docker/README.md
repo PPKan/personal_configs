@@ -4,6 +4,7 @@ To initialize a new VPS quickly, run:
 ```bash
 curl -fsSL https://raw.githubusercontent.com/PPKan/personal_configs/main/docker/init.sh | bash
 ```
+
 ## 1. Machine Initialization
 ```bash
 sudo hostnamectl set-hostname pp-cloud
@@ -26,8 +27,7 @@ After the authorization, modify AWS EC2 Security Group to allow SSH from Tailsca
 ## 3. Install Docker
 
 ```bash
-#!/bin/bash
-mkdir ~/workspace
+mkdir -p ~/workspace
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 ```
@@ -35,14 +35,16 @@ sudo sh get-docker.sh
 ## 4. Clone and Run Codex (or other docker compose projects)
 
 ```bash
-#!/bin/bash
-cd workspace
-git clone --depth 1 --filter=blob:none --sparse https://github.com/PPKan/personal_configs.git
-cd personal_configs
+tmpdir=$(mktemp -d)
+git clone --depth 1 --filter=blob:none --sparse https://github.com/PPKan/personal_configs.git "$tmpdir"
+cd "$tmpdir"
 git sparse-checkout set docker/node-codex
-cd docker/node-codex
+cp -a docker/node-codex/. ~/workspace/
+cd ~
+rm -rf "$tmpdir"
 ```
 
 ```bash
+cd ~/workspace
 sudo docker compose up -d
 ```
