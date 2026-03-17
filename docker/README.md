@@ -49,3 +49,8 @@ cd ~/workspace
 sudo docker compose up -d
 sudo docker compose exec codex-agent bash
 ```
+
+## 5. Run Codex
+```bash
+codex --config model_reasoning_effort="xhigh" --dangerously-bypass-approvals-and-sandbox
+```
