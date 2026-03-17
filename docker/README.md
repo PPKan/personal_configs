@@ -47,4 +47,5 @@ rm -rf "$tmpdir"
 ```bash
 cd ~/workspace
 sudo docker compose up -d
+sudo docker compose exec codex-agent bash
 ```
