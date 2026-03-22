@@ -32,7 +32,7 @@ curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 ```
 
-## 4. Clone and Run Codex (or other docker compose projects)
+## 4.a Clone and Run Codex
 
 ```bash
 tmpdir=$(mktemp -d)
@@ -49,6 +49,25 @@ cd ~/workspace
 sudo docker compose up -d
 sudo docker compose exec codex-agent bash
 ```
+
+## 4.b Clone and Run OpenClaw
+
+```bash
+tmpdir=$(mktemp -d)
+git clone --depth 1 --filter=blob:none --sparse https://github.com/PPKan/personal_configs.git "$tmpdir"
+cd "$tmpdir"
+git sparse-checkout set docker/node-openclaw
+cp -a docker/node-openclaw/. ~/workspace/
+cd ~
+rm -rf "$tmpdir"
+```
+
+```bash
+cd ~/workspace
+sudo docker compose up -d
+sudo docker compose exec openclaw-agent bash
+```
+
 
 ## 5. Setup .ssh config file and import ssh key
 
