@@ -69,7 +69,7 @@ sudo docker compose exec openclaw-agent bash
 ```
 
 
-## 5. Setup .ssh config file and import ssh key
+## 5. Setup .ssh config file and import ssh key (gh is recommended instead)
 
 ```bash
 mkdir -p ~/.ssh
