@@ -1,9 +1,10 @@
 services:
-  codex-agent:
+  openclaw-agent:
     build: .
-    container_name: codex-agent
+    container_name: openclaw-agent
     ports:
-      - "8080:80"
+      - "18789:18789"
+      - "18790:18790"
     volumes:
       - .:/workspace
     command: sleep infinity

@@ -8,7 +8,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN curl -L https://github.com/PPKan/personal_configs/raw/refs/heads/main/.tmux.conf.internal -o /root/.tmux.conf
 
-RUN npm i -g @openai/codex
+RUN npm install -g openclaw@latest
+
+RUN openclaw onboard --install-daemon
 
 WORKDIR /workspace
 

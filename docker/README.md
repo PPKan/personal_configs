@@ -50,7 +50,30 @@ sudo docker compose up -d
 sudo docker compose exec codex-agent bash
 ```
 
-## 5. Run Codex
+## 5. Setup .ssh config file and import ssh key
+
+```bash
+mkdir -p ~/.ssh
+vi ~/.ssh/id_ed25519
+chmod 600 ~/.ssh/id_ed25519
+vi ~/.ssh/config
+```
+
+```text
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519
+  AddKeysToAgent yes
+  IdentitiesOnly yes
+```
+
+```bash
+git clone git@github.com:...
+```
+
+
+## 6. Run Codex
 ```bash
 codex --config model_reasoning_effort="xhigh" --dangerously-bypass-approvals-and-sandbox
 ```
